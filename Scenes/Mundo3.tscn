@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/Mundo1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Sun.tscn" type="PackedScene" id=2]
 
 [node name="Mundo2" instance=ExtResource( 1 )]
 
@@ -9,6 +10,9 @@ tile_data = PoolIntArray( -393216, 0, 0, -393206, 0, 0, -65556, 0, 0 )
 
 [node name="TileMap" parent="." index="5"]
 tile_data = PoolIntArray( -327682, 11, 0, -393210, 12, 0, -262152, 9, 0, -327679, 11, 0, -196613, 10, 0, -131065, 2, 0, -131064, 1, 0, -1, 2, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 1, 0, -65529, 7, 0, -65528, 14, 0, 65528, 2, 0, 65529, 0, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 1, 0, 65535, 7, 0, 0, 5, 0, 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, 14, 0, 131064, 7, 0, 131065, 5, 0, 131066, 5, 0, 131067, 5, 0, 131068, 5, 0, 131069, 14, 0 )
+
+[node name="Sun" parent="." index="7" instance=ExtResource( 2 )]
+position = Vector2( 110, -80 )
 
 [node name="Go" parent="SignArrow" index="0"]
 position = Vector2( 165, -39 )
