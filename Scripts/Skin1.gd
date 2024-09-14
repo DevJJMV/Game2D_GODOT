@@ -82,4 +82,3 @@ func _on_Spikes_body_entered(body):
 	if body.get_name() == "Player":
 		print("Hemos chocado con un pincho")
 		get_tree().reload_current_scene()
-

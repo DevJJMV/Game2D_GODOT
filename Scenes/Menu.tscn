@@ -58,16 +58,25 @@ margin_bottom = 20.0
 custom_styles/focus = SubResource( 1 )
 text = "Start Game"
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="Skins" type="Button" parent="VBoxContainer"]
 margin_top = 24.0
 margin_right = 200.0
 margin_bottom = 44.0
 text = "Customize your skin"
 
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
+[node name="Options" type="Button" parent="VBoxContainer"]
 margin_top = 48.0
 margin_right = 200.0
 margin_bottom = 68.0
+text = "Controller options"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+margin_top = 72.0
+margin_right = 200.0
+margin_bottom = 92.0
 custom_styles/focus = SubResource( 2 )
 text = "Quit"
 
