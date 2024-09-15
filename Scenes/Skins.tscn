@@ -1,0 +1,212 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Rocky Roads/Enemies/slime_green.png" type="Texture" id=1]
+[ext_resource path="res://Rocky Roads/Enemies/Label red skin.png" type="Texture" id=2]
+[ext_resource path="res://Rocky Roads/Enemies/Label default.png" type="Texture" id=3]
+[ext_resource path="res://Rocky Roads/Enemies/Label pink skin.png" type="Texture" id=4]
+[ext_resource path="res://Rocky Roads/Enemies/slime_pink.png" type="Texture" id=5]
+[ext_resource path="res://Rocky Roads/Enemies/slime_blue.png" type="Texture" id=6]
+[ext_resource path="res://Rocky Roads/Enemies/Label green skin.png" type="Texture" id=7]
+[ext_resource path="res://Rocky Roads/Enemies/Label sheriff skin.png" type="Texture" id=8]
+[ext_resource path="res://Rocky Roads/Enemies/slime_red.png" type="Texture" id=9]
+[ext_resource path="res://Rocky Roads/Enemies/slime_sheriff.png" type="Texture" id=10]
+[ext_resource path="res://Rocky Roads/Backgrounds/desert_b.png" type="Texture" id=11]
+[ext_resource path="res://Rocky Roads/Backgrounds/desert_a.png" type="Texture" id=12]
+[ext_resource path="res://Rocky Roads/Backgrounds/mountains_a.png" type="Texture" id=13]
+[ext_resource path="res://Rocky Roads/Deco/water_a_8frames.png" type="Texture" id=14]
+[ext_resource path="res://Rocky Roads/Backgrounds/trees.png" type="Texture" id=15]
+[ext_resource path="res://Scripts/ChangeSkin.gd" type="Script" id=16]
+[ext_resource path="res://Rocky Roads/Backgrounds/clouds.png" type="Texture" id=17]
+[ext_resource path="res://Rocky Roads/Backgrounds/mountains_b.png" type="Texture" id=18]
+
+[node name="Skins_menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Clouds" type="Sprite" parent="."]
+position = Vector2( 512.5, 77 )
+scale = Vector2( 4.01172, 4.12109 )
+texture = ExtResource( 17 )
+
+[node name="MountainsB" type="Sprite" parent="."]
+position = Vector2( 511, 251.5 )
+scale = Vector2( 4.00781, 3.97656 )
+texture = ExtResource( 18 )
+
+[node name="WaterA8Frames2" type="Sprite" parent="."]
+position = Vector2( 512.5, 545 )
+scale = Vector2( 3.98828, 3.3125 )
+texture = ExtResource( 14 )
+
+[node name="WaterA8Frames" type="Sprite" parent="."]
+position = Vector2( 232, 22 )
+scale = Vector2( 1.82031, 9 )
+texture = ExtResource( 14 )
+
+[node name="Trees" type="Sprite" parent="."]
+position = Vector2( 231, 233 )
+scale = Vector2( 1.80469, 1.47656 )
+texture = ExtResource( 15 )
+
+[node name="MountainsA" type="Sprite" parent="."]
+position = Vector2( 770.5, 72.5 )
+scale = Vector2( 1.77734, 1.46094 )
+texture = ExtResource( 13 )
+
+[node name="DesertB" type="Sprite" parent="."]
+position = Vector2( 770, 250.5 )
+scale = Vector2( 1.76563, 1.21094 )
+texture = ExtResource( 11 )
+
+[node name="DesertA" type="Sprite" parent="."]
+position = Vector2( 529, 474.5 )
+scale = Vector2( 2.01562, 1.92969 )
+texture = ExtResource( 12 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 624, 126 )
+color = Color( 0.443137, 0.443137, 0.443137, 0.403922 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Default" type="Button" parent="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.0
+margin_top = 128.0
+margin_right = -559.0
+margin_bottom = -427.0
+rect_pivot_offset = Vector2( 54, 46 )
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SlimeBlue" type="Sprite" parent="ColorRect"]
+position = Vector2( 213, 24.75 )
+scale = Vector2( 11.75, 12.8437 )
+texture = ExtResource( 6 )
+hframes = 5
+vframes = 2
+
+[node name="LabelDefault" type="Sprite" parent="ColorRect/SlimeBlue"]
+position = Vector2( 1.27659, 9.75184 )
+scale = Vector2( 0.0569301, 0.0552703 )
+texture = ExtResource( 3 )
+
+[node name="Green" type="Button" parent="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 291.0
+margin_right = -562.0
+margin_bottom = -268.0
+rect_pivot_offset = Vector2( 54, 46 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelGreenSkin" type="Sprite" parent="ColorRect"]
+position = Vector2( 225, 313 )
+scale = Vector2( 0.445337, 0.464286 )
+texture = ExtResource( 7 )
+
+[node name="SlimeGreen" type="Sprite" parent="ColorRect/LabelGreenSkin"]
+position = Vector2( -47.1553, -239.077 )
+scale = Vector2( 23.2115, 23.7596 )
+texture = ExtResource( 1 )
+hframes = 5
+vframes = 2
+
+[node name="Pink" type="Button" parent="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 543.0
+margin_top = 129.0
+margin_right = -26.0
+margin_bottom = -433.0
+rect_pivot_offset = Vector2( 54, 46 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelPinkSkin" type="Sprite" parent="ColorRect"]
+position = Vector2( 759, 151 )
+scale = Vector2( 0.484831, 0.445946 )
+texture = ExtResource( 4 )
+
+[node name="SlimePink" type="Sprite" parent="ColorRect/LabelPinkSkin"]
+position = Vector2( 20.6257, -276.939 )
+scale = Vector2( 25.0087, 28.1705 )
+texture = ExtResource( 5 )
+hframes = 5
+vframes = 2
+
+[node name="Red" type="Button" parent="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 544.0
+margin_top = 295.0
+margin_right = -27.0
+margin_bottom = -269.0
+rect_pivot_offset = Vector2( -667, 153 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SlimeRed" type="Sprite" parent="ColorRect"]
+position = Vector2( 758.689, 204.911 )
+scale = Vector2( 11.6698, 11.0123 )
+texture = ExtResource( 9 )
+hframes = 5
+vframes = 2
+
+[node name="LabelRedSkin" type="Sprite" parent="ColorRect/SlimeRed"]
+position = Vector2( 1.14065, 10.1785 )
+scale = Vector2( 0.0466936, 0.0355443 )
+texture = ExtResource( 2 )
+
+[node name="Sheriff" type="Button" parent="ColorRect"]
+margin_left = 272.0
+margin_top = 540.0
+margin_right = 789.0
+margin_bottom = 599.0
+rect_pivot_offset = Vector2( -667, 153 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelSheriffSkin" type="Sprite" parent="ColorRect"]
+position = Vector2( 530, 562 )
+scale = Vector2( 0.469739, 0.446429 )
+texture = ExtResource( 8 )
+
+[node name="SlimeSheriff" type="Sprite" parent="ColorRect/LabelSheriffSkin"]
+position = Vector2( -21.2885, -318.08 )
+scale = Vector2( 33.9284, 33.3549 )
+texture = ExtResource( 10 )
+hframes = 5
+vframes = 2
+
+[node name="ReturnMenu" type="Button" parent="."]
+margin_left = 5.0
+margin_top = 543.0
+margin_right = 227.0
+margin_bottom = 594.0
+text = "Regresar al menú"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="ColorRect/Default" to="ColorRect/Default" method="_on_Default_pressed"]
+[connection signal="pressed" from="ColorRect/Green" to="ColorRect/Default" method="_on_Green_pressed"]
+[connection signal="pressed" from="ColorRect/Pink" to="ColorRect/Default" method="_on_Pink_pressed"]
+[connection signal="pressed" from="ColorRect/Red" to="ColorRect/Default" method="_on_Red_pressed"]
+[connection signal="pressed" from="ColorRect/Sheriff" to="ColorRect/Default" method="_on_Sheriff_pressed"]
+[connection signal="pressed" from="ReturnMenu" to="ColorRect/Default" method="_on_ReturnMenu_pressed"]

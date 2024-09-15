@@ -1,24 +1,63 @@
 extends KinematicBody2D
 
-# Movimiento
+# Movimiento y otras variables del jugador
 const moveSpeed = 50
 const maxSpeed = 80
-
-# Salto
 const jumpHeight = -300
-const up = Vector2(0, -1)
-
-# Gravedad
 const gravity = 15
+var motion = Vector2()
+var is_jumping = false
 
+# Contador de monedas
+var coin_count = 0  # Variable para almacenar las monedas recolectadas
+
+# Referencia al Sprite del jugador
 onready var sprite = $Sprite
 onready var animationPlayer = $AnimationPlayer
 
-# Movimiento
-var motion = Vector2()
+# Ruta de la skin azul por defecto
+const default_skin_texture = "res://Rocky Roads/Enemies/slime_blue.png"
 
-# Estado para verificar si el personaje está en el aire
-var is_jumping = false
+# Cargar la skin seleccionada (el PNG) o la skin azul por defecto
+func _ready():
+	load_selected_skin()  # Llamamos la función que cambia la textura del Sprite
+
+func load_selected_skin():
+	# Obtener la ruta de la skin seleccionada desde el SkinManager
+	var selected_skin_texture_path = SkinManager.get_skin()
+	
+	# Si no hay skin seleccionada, usar la skin azul por defecto
+	if selected_skin_texture_path == "":
+		selected_skin_texture_path = default_skin_texture
+
+	print("Cargando skin: ", selected_skin_texture_path)  # Depuración
+	var new_texture = load(selected_skin_texture_path)
+	sprite.texture = new_texture
+
+# Esta función se llama cada vez que la textura del Sprite cambie
+func _on_Sprite_texture_changed():
+	print("La textura del sprite ha cambiado a: ", sprite.texture)
+
+# Función para recolectar monedas y cambiar de mundo
+func add_Coin():
+	coin_count += 1  # Incrementa el contador de monedas
+	print("Monedas recolectadas: ", coin_count)  # Mensaje de depuración
+
+	# Cambiar de mundo cuando se recolecten 3 monedas
+	if coin_count == 3:
+		coin_count = 0  # Reinicia el contador de monedas
+		Global.current_world += 1  # Incrementa el número de mundo
+		print("Cambiando a Mundo", Global.current_world)
+
+		# Cargar la nueva escena del mundo
+		var next_scene = "res://Scenes/Mundo" + str(Global.current_world) + ".tscn"
+		var result = get_tree().change_scene(next_scene)
+
+		# Verificar si el cambio de escena fue exitoso
+		if result != OK:
+			print("Error al cargar la escena: ", next_scene)
+			Global.current_world = 1  # Si hay error, reinicia a Mundo1
+			get_tree().change_scene("res://Scenes/Mundo1.tscn")
 
 # Físicas del jugador
 func _physics_process(delta):
@@ -50,7 +89,7 @@ func _physics_process(delta):
 			is_jumping = true  # Cambiamos el estado a saltando
 
 	else:
-		# Mientras esté en el aire, permitir movimiento lateral solo cuando se presionan teclas
+		# Movimiento en el aire
 		if Input.is_action_pressed("ui_right"):
 			sprite.flip_h = true
 			motion.x = min(motion.x + moveSpeed, maxSpeed)
@@ -60,26 +99,10 @@ func _physics_process(delta):
 			motion.x = max(motion.x - moveSpeed, -maxSpeed)
 
 		else:
-			# Si estamos en el aire y no se presiona ningún botón, detener el movimiento horizontal
 			motion.x = 0
 
-		# Reproducimos la animación de salto solo cuando estamos en el aire
 		if is_jumping:
 			animationPlayer.play("Jump")
 
-	# Aplicar movimiento
-	motion = move_and_slide(motion, up)
-
-func add_Coin():
-	var canvasLayer = get_tree().get_root().find_node("CanvasLayer", true, false)
-	canvasLayer.handleCoinCollected()
-
-func _loseLife():
-	print("Hemos recibido daño, reiniciando nivel")
-	get_tree().reload_current_scene()
-
-func _on_Spikes_body_entered(body):
-	if body.get_name() == "Player":
-		print("Hemos chocado con un pincho")
-		get_tree().reload_current_scene()
-
+	# Aplicar el movimiento
+	motion = move_and_slide(motion, Vector2(0, -1))

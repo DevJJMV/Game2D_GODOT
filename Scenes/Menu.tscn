@@ -97,4 +97,6 @@ scale = Vector2( 0.54393, 0.791176 )
 texture = ExtResource( 7 )
 
 [connection signal="pressed" from="VBoxContainer/StartGameButton" to="." method="_on_StartGameButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/Skins" to="." method="_on_Skins_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_Options_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
