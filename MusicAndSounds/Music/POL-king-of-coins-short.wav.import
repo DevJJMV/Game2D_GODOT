@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/POL-king-of-coins-short.wav-bdb80f5c33d878670a38550f9f6672f0.sample"
+
+[deps]
+
+source_file="res://MusicAndSounds/Music/POL-king-of-coins-short.wav"
+dest_files=[ "res://.import/POL-king-of-coins-short.wav-bdb80f5c33d878670a38550f9f6672f0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

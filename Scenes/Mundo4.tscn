@@ -38,3 +38,6 @@ texture = ExtResource( 3 )
 
 [node name="SignArrow" parent="." index="13"]
 position = Vector2( -91, -17 )
+
+[node name="Go" parent="SignArrow" index="0"]
+position = Vector2( -71, -10.3529 )

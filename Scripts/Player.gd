@@ -15,6 +15,9 @@ var coin_count = 0  # Variable para almacenar las monedas recolectadas
 onready var sprite = $Sprite
 onready var animationPlayer = $AnimationPlayer
 
+# Referencia al AudioStreamPlayer para el sonido de salto
+onready var jump_sound = $AudioStreamPlayer  # Asegúrate de que este nodo está en la escena del jugador
+
 # Ruta de la skin azul por defecto
 const default_skin_texture = "res://Rocky Roads/Enemies/slime_blue.png"
 
@@ -40,6 +43,8 @@ func _on_Sprite_texture_changed():
 
 # Función para recolectar monedas y cambiar de mundo
 func add_Coin():
+	var canvasLayer = get_tree().get_root().find_node("CanvasLayer",true,false)
+	canvasLayer.handleCoinCollected()
 	coin_count += 1  # Incrementa el contador de monedas
 	print("Monedas recolectadas: ", coin_count)  # Mensaje de depuración
 
@@ -58,6 +63,11 @@ func add_Coin():
 			print("Error al cargar la escena: ", next_scene)
 			Global.current_world = 1  # Si hay error, reinicia a Mundo1
 			get_tree().change_scene("res://Scenes/Mundo1.tscn")
+
+# Función para reproducir el sonido de salto
+func play_jump_sound():
+	if jump_sound and !jump_sound.playing:
+		jump_sound.play()
 
 # Físicas del jugador
 func _physics_process(delta):
@@ -86,6 +96,7 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("ui_accept"):
 			motion.y = jumpHeight
 			animationPlayer.play("Jump")
+			play_jump_sound()  # Reproducir sonido de salto
 			is_jumping = true  # Cambiamos el estado a saltando
 
 	else:
@@ -106,3 +117,12 @@ func _physics_process(delta):
 
 	# Aplicar el movimiento
 	motion = move_and_slide(motion, Vector2(0, -1))
+
+func _on_Spikes_body_entered(body):
+	if body.get_name() == "Player":
+		print("Hemos chocado con una espina. Reiniciando el nivel...")
+		get_tree().reload_current_scene()  # Esta función recarga la escena actual
+
+func _loseLife():
+	print("Hemos chocado con una sierra. Reiniciando el nivel...")
+	get_tree().reload_current_scene()  # Esta función recarga la escena actual

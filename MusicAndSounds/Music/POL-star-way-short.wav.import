@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/POL-star-way-short.wav-82c7c2b24d0dc4150dfd7b13479ec323.sample"
+
+[deps]
+
+source_file="res://MusicAndSounds/Music/POL-star-way-short.wav"
+dest_files=[ "res://.import/POL-star-way-short.wav-82c7c2b24d0dc4150dfd7b13479ec323.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

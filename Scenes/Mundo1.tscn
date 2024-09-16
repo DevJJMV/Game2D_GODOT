@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Rocky Roads/Tilesets/tileset_forest.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://Scenes/Sun.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Scenes/PauseMenu.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=21]
+[ext_resource path="res://MusicAndSounds/Music/POL-star-way-short.wav" type="AudioStream" id=22]
 
 [sub_resource type="ConvexPolygonShape2D" id=15]
 points = PoolVector2Array( 0, 9, 0, 5, 1, 5, 1, 2, 2, 2, 2, 0, 5, 0, 5, 1, 5, 2, 6, 2, 6, 5, 6, 8, 7, 8, 7, 9 )
@@ -429,13 +430,13 @@ tile_data = PoolIntArray( -327682, 11, 0, -393210, 12, 0, -262152, 9, 0, -327679
 position = Vector2( 57, -32 )
 texture = ExtResource( 10 )
 
-[node name="Coin" parent="." instance=ExtResource( 12 )]
+[node name="Coins" parent="." instance=ExtResource( 12 )]
 position = Vector2( -56, -7 )
 
-[node name="Coin" parent="Coin" instance=ExtResource( 12 )]
+[node name="Coin" parent="Coins" instance=ExtResource( 12 )]
 position = Vector2( 174, -32 )
 
-[node name="Coin2" parent="Coin" instance=ExtResource( 12 )]
+[node name="Coin2" parent="Coins" instance=ExtResource( 12 )]
 position = Vector2( 73, -18 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -492,7 +493,6 @@ __meta__ = {
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 20 )]
 pause_mode = 2
-visible = false
 anchor_left = -0.036
 anchor_top = -0.036
 margin_left = -95.136
@@ -516,6 +516,11 @@ texture = ExtResource( 16 )
 [node name="Go" type="Sprite" parent="SignArrow"]
 position = Vector2( -50, -12 )
 texture = ExtResource( 17 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 22 )
+volume_db = -30.0
+autoplay = true
 
 [connection signal="body_entered" from="Spikes" to="Player" method="_on_Spikes_body_entered"]
 [connection signal="body_entered" from="Caida" to="Caida" method="_on_Area2D_body_entered"]

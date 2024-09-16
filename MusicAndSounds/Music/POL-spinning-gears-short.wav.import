@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/POL-spinning-gears-short.wav-ec28874025bd7f7939cfb99a0b1f6991.sample"
+
+[deps]
+
+source_file="res://MusicAndSounds/Music/POL-spinning-gears-short.wav"
+dest_files=[ "res://.import/POL-spinning-gears-short.wav-ec28874025bd7f7939cfb99a0b1f6991.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0
