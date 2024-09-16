@@ -20,6 +20,10 @@ Global="*res://Scripts/Global.gd"
 SkinManager="*res://Scripts/SkinManager.gd"
 GlobalConfig="*res://Scripts/GlobalConfig.gd"
 
+[display]
+
+window/size/resizable=false
+
 [input]
 
 ui_accept={

@@ -16,20 +16,23 @@ position = Vector2( -10, -48 )
 [node name="Saw" parent="TileMap" index="1" instance=ExtResource( 4 )]
 position = Vector2( 19, -30 )
 
-[node name="Coin" parent="." index="6"]
-position = Vector2( -28, -38 )
+[node name="Coins" parent="." index="6"]
+position = Vector2( -23, -38 )
 
-[node name="Coin" parent="Coin" index="1"]
-position = Vector2( 81, -31 )
+[node name="Coin" parent="Coins" index="1"]
+position = Vector2( 154, -1 )
 
-[node name="Coin2" parent="Coin" index="2"]
-position = Vector2( 164, 1 )
+[node name="Coin2" parent="Coins" index="2"]
+position = Vector2( 76, -33 )
 
 [node name="Saw" parent="." index="7" instance=ExtResource( 4 )]
-position = Vector2( -62, 1 )
+position = Vector2( -65, -4 )
 
 [node name="Sun" parent="." index="8" instance=ExtResource( 2 )]
 position = Vector2( 110, -80 )
+
+[node name="PauseMenu" parent="CanvasLayer" index="4"]
+visible = false
 
 [node name="Go" type="Sprite" parent="Caida" index="1"]
 position = Vector2( 250, 38.5625 )

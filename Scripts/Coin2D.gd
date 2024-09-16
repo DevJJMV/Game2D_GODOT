@@ -2,15 +2,18 @@ extends Area2D
 
 signal coinCollected
 
+func _ready():
+	add_to_group("coins")  # Añadir la moneda al grupo "coins"
+	var ui_node = get_tree().get_root().get_node("CanvasLayer")  # Ajusta la ruta si es necesario
+	if ui_node:
+		connect("coinCollected", ui_node, "handleCoinCollected")
+	else:
+		print("No se encontró el nodo CanvasLayer")
+
 func _on_Coin2D_body_entered(body):
-	
 	if body.get_name() == "Player":
-		$AudioStreamPlayer.playing = true
+		$AudioStreamPlayer.play()  # Reproduce el sonido correctamente
 		emit_signal("coinCollected")
-		body.add_Coin()
-		# Acá va la línea de código para desaparecer la moneda con visible=false
-		self.visible = false  # La moneda desaparece (no se muestra más en la escena)
-		yield(get_tree().create_timer(0.5), "timeout")
-		
-		queue_free()  # Luego de 0.5 segundos, la moneda se elimina de la escena
-		
+		self.visible = false
+		set_deferred("monitoring", false)  # Desactiva la detección de colisiones
+		call_deferred("queue_free")  # Libera el nodo de forma segura

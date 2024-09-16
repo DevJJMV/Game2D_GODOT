@@ -41,28 +41,8 @@ func load_selected_skin():
 func _on_Sprite_texture_changed():
 	print("La textura del sprite ha cambiado a: ", sprite.texture)
 
-# Función para recolectar monedas y cambiar de mundo
 func add_Coin():
-	var canvasLayer = get_tree().get_root().find_node("CanvasLayer",true,false)
-	canvasLayer.handleCoinCollected()
-	coin_count += 1  # Incrementa el contador de monedas
-	print("Monedas recolectadas: ", coin_count)  # Mensaje de depuración
-
-	# Cambiar de mundo cuando se recolecten 3 monedas
-	if coin_count == 3:
-		coin_count = 0  # Reinicia el contador de monedas
-		Global.current_world += 1  # Incrementa el número de mundo
-		print("Cambiando a Mundo", Global.current_world)
-
-		# Cargar la nueva escena del mundo
-		var next_scene = "res://Scenes/Mundo" + str(Global.current_world) + ".tscn"
-		var result = get_tree().change_scene(next_scene)
-
-		# Verificar si el cambio de escena fue exitoso
-		if result != OK:
-			print("Error al cargar la escena: ", next_scene)
-			Global.current_world = 1  # Si hay error, reinicia a Mundo1
-			get_tree().change_scene("res://Scenes/Mundo1.tscn")
+	pass  # No es necesario manejar el conteo aquí
 
 # Función para reproducir el sonido de salto
 func play_jump_sound():
