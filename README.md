@@ -45,5 +45,5 @@ This project is licensed under the MIT License. Feel free to use, modify, and di
 Contact
 For questions or suggestions, feel free to reach out:
 
-Email: your-email@example.com
-GitHub: Your GitHub Profile
+Email: jmahechav@uniempresarial.edu.co
+GitHub: DevJJMV
